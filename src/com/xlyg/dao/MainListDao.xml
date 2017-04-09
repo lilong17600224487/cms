@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xlyg.dao.MainListDao">
+	<select id="findTextList" resultType="com.xlyg.model.Text">
+		select *from text
+	</select>
+	<select id="findText" resultType="com.xlyg.model.Text">
+		select *from text where id=#{id}	
+	</select>
+	<insert id="createText">
+		insert into text
+		(title,url,detaile,createtime)
+		values
+		(#{p.title},#{p.url},#{p.detaile},#{p.createtime})
+	</insert>
+	<update id="updateText">
+		update text 
+		set title=#{p.title},url=#{p.url},detaile=#{p.detaile}
+		where id=#{p.id}
+	</update>
+</mapper>
